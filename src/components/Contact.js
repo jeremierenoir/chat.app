@@ -14,17 +14,17 @@ class Contact extends React.Component {
         return (
             <div className="Contact">
                 <img className="avatar" src={this.props.avatar} alt={this.props.name} />
-                <div>
+                <div className="status">
                     <h4 className="name">{this.props.name}</h4>
-                    <div className="status">
-                        <div
-                            onClick={event => {
-                                const newStatus = !this.state.false
-                                this.setState({ status: newStatus })
-                            }}
-                            className={this.props.online ? 'status-online' : 'status-offline'} />
-                        <p className="status-text">{this.props.online ? "Online" : "Offline"}</p>
-                    </div>
+
+                    <div
+                        className={this.state.online ? 'status-online' : 'status-offline'}></div>
+                    <p
+                        onClick={event => {
+                            const newStatus = !this.state.online
+                            this.setState({online: newStatus })
+                        }}
+                        className="status-text">{this.props.online ? "Online" : "Offline"}</p>
                 </div>
             </div>
         )
